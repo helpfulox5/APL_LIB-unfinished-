@@ -21,7 +21,7 @@ public:
 
      u_int = {};
      u_int.push_back (-1);
-     for (int i = 1; i < str.length (); i++){
+     for (int i = 1; i < str.length(); i++){
       u_int.push_back (str.at (i) -= 48);
       }
    }
@@ -58,7 +58,7 @@ public:
      }
 
 
-     int relativeat(int pos){
+    int relativeat(int pos){
 
      if (pos < 0 || pos > u_int.size()){
          return -1;
@@ -79,10 +79,7 @@ public:
 }
 
 
- vector<int> change(int pos, int num){
-
-
-
+  vector<int> change(int pos, int num){
      if(pos > 0 || pos < u_int.size()){
       u_int.at(pos)+=num;
       return u_int;
@@ -95,6 +92,7 @@ public:
     for (int i = 0; i<num1.size(); i++){
       if (num1.relativeat(i)>num2.relativeat(i)){
         return 1;
+        // if num1 is larger
      }
      else {
         return -1;
@@ -201,76 +199,55 @@ void insert(int pos, signed int num){
       }
      }
     }
-    // end of aligning process
 
-    // addition process
     for (int i = 1; i<num1.size(); i++){
         u_int.push_back(0);
     }
 
+    // end of aligning process
+
+    // addition process
+
+    // code for if num1 is negative (incomplete)
     if (num1.at(0) == -1){
 
 
 
     }
 
+
+
+         // code for if num2 is negative (complete)
         else if (num2.at(0) == -1){
            if (compare(num1,num2) == 1){
-
            for (int i = num1.size()-1; i>=0; i--){
              u_int.at(i) = num1.at(i)-num2.at(i+1);
           }
 
           u_int.at(0) = num1.at(0)-num2.at(1);
           for (int i = num1.size()-1; i>0; i--){
-
             if (u_int.at(i) < 0){
-
                 u_int.at(i-1) -= 1;
                 u_int.at(i) += 10;
             }
-
           }
         }
 
         else if (compare(num1,num2) == -1){
-           cout << "SUB" << endl;
          for (int i = num2.size()-1; i>=0; i--){
             u_int.at(i) = num2.at(i+1)-num1.at(i);
-
          }
 
           for (int i = num2.size()-1; i>0; i--){
-
             if (u_int.at(i) < 0){
-
                 u_int.at(i-1) -= 1;
                 u_int.at(i) += 10;
             }
-
           }
-
-
-
-
-
-
-
-
          u_int.insert(u_int.begin(),-1);
-
-
-
-
         }
-
-
        }
-
-
-
-
-       }
+      }
 
 
 
@@ -292,8 +269,9 @@ int main ()
   big_num num2;
 
   num1.setstr("10001");
-  num2.setstr("-35680");
+  num2.setstr("-69");
   test.add(num1, num2);
+
   test.outstr();
 
 
