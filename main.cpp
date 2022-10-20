@@ -219,46 +219,30 @@ void insert(int pos, signed int num){
 
          // code for if num2 is negative (complete)
         else if (num2.at(0) == -1){
-           if (compare(num1,num2) == 1){
-           for (int i = num1.size()-1; i>=0; i--){
-             u_int.at(i) = num1.at(i)-num2.at(i+1);
+            
+            // code if abs(num2) is less than num1
+          if (compare(num1,num2) == 1){
+              for (int i = num1.size()-1; i>=0; i--){
+                  u_int.at(i) = num1.at(i)-num2.at(i+1);
+                  
+                }
+                 for (int i = num1.size()-1; i>=0; i--){
+                  if (u_int.at(i) < 0){
+                    
+                     u_int.at(i)=10+u_int.at(i);
+                     u_int.at(i-1)-=1; 
+                  }
+              }
           }
-
-          u_int.at(0) = num1.at(0)-num2.at(1);
-          for (int i = num1.size()-1; i>0; i--){
-            if (u_int.at(i) < 0){
-                u_int.at(i-1) -= 1;
-                u_int.at(i) += 10;
-            }
-          }
+          
+         
+         
+         
         }
-
-        else if (compare(num1,num2) == -1){
-         for (int i = num2.size()-1; i>=0; i--){
-            u_int.at(i) = num2.at(i+1)-num1.at(i);
-         }
-
-          for (int i = num2.size()-1; i>0; i--){
-            if (u_int.at(i) < 0){
-                u_int.at(i-1) -= 1;
-                u_int.at(i) += 10;
-            }
-          }
-         u_int.insert(u_int.begin(),-1);
-        }
-       }
-      }
-
-
-
-
-
-   return u_int;
    }
-
-
-
-
+   return u_int; 
+  }
+   
 };
 
 int main ()
@@ -268,8 +252,8 @@ int main ()
   big_num num1;
   big_num num2;
 
-  num1.setstr("10001");
-  num2.setstr("-69");
+  num1.setstr("423547323756385684273643287658342756");
+  num2.setstr("-3428978427364328765834275663246");
   test.add(num1, num2);
 
   test.outstr();
