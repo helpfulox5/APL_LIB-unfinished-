@@ -217,10 +217,10 @@ void insert(int pos, signed int num){
 
 
 
-         // code for if num2 is negative (complete)
+         // code for if num2 is negative (incomplete)
         else if (num2.at(0) == -1){
             
-            // code if abs(num2) is less than num1
+            // code if abs(num2) is less than num1 (complete)
           if (compare(num1,num2) == 1){
               for (int i = num1.size()-1; i>=0; i--){
                   u_int.at(i) = num1.at(i)-num2.at(i+1);
@@ -233,6 +233,24 @@ void insert(int pos, signed int num){
                      u_int.at(i-1)-=1; 
                   }
               }
+          }
+          // code for if abs(num2) is more than num1 (incomplete)
+          if (compare(num1,num2) == -1){
+              
+            for (int i = num2.size()-1; i>=0; i--){
+              u_int.at(i) = num2.at(i+1)-num1.at(i);
+            }
+               
+             for (int i = num1.size()-1; i>=0; i--){
+                 if (u_int.at(i) < 0){
+                
+                     u_int.at(i)=10+u_int.at(i);
+                     u_int.at(i-1)-=1; 
+                  }
+                  
+              }
+
+
           }
           
          
@@ -252,8 +270,8 @@ int main ()
   big_num num1;
   big_num num2;
 
-  num1.setstr("423547323756385684273643287658342756");
-  num2.setstr("-3428978427364328765834275663246");
+  num1.setstr("1");
+  num2.setstr("-2");
   test.add(num1, num2);
 
   test.outstr();
