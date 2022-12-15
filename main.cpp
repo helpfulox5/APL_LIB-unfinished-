@@ -182,7 +182,7 @@ void insert(int pos, signed int num){
      }
     else if (num1.at(0) != -1){
       while(num1.size()<num2.size()){
-        num1.insert(1,0);
+        num1.insert(0,0);
       }
      }
     }
@@ -195,14 +195,12 @@ void insert(int pos, signed int num){
      }
     else if (num2.at(0) != -1){
       while(num2.size()<num1.size()){
-        num2.insert(1,0);
+        num2.insert(0,0);
       }
      }
     }
 
-    for (int i = 1; i<num1.size(); i++){
-        u_int.push_back(0);
-    }
+
 
     // end of aligning process
 
@@ -222,6 +220,12 @@ void insert(int pos, signed int num){
             
             // code if abs(num2) is less than num1 (complete)
           if (compare(num1,num2) == 1){
+              
+            for (int i = 1; i<num1.size(); i++){
+               u_int.push_back(0);
+                }               
+              
+              
               for (int i = num1.size()-1; i>=0; i--){
                   u_int.at(i) = num1.at(i)-num2.at(i+1);
                   
@@ -234,28 +238,35 @@ void insert(int pos, signed int num){
                   }
               }
           }
-          // code for if abs(num2) is more than num1 (incomplete)
+          // code for if abs(num2) is more than num1 (complete)
           if (compare(num1,num2) == -1){
               
-            for (int i = num2.size()-1; i>=0; i--){
-              u_int.at(i) = num2.at(i+1)-num1.at(i);
-            }
+           for (int i = 0; i<num2.size(); i++){
+             u_int.push_back(0);
+            }    
+              
+           u_int.at(0) = -1;
+           for (int i = num2.size()-1; i>=0; i--){
+               u_int.at(i+1) = num2.at(i+1)-num1.at(i);
                
-             for (int i = num1.size()-1; i>=0; i--){
-                 if (u_int.at(i) < 0){
-                
-                     u_int.at(i)=10+u_int.at(i);
-                     u_int.at(i-1)-=1; 
-                  }
-                  
-              }
-
-
-          }
+           }
           
          
-         
-         
+           for (int i = num2.size(); i>=1; i--){
+               if (u_int.at(i) < 0){
+                   
+                   
+                   u_int.at(i) += 10;
+                   u_int.at(i-1) -= 1;
+               }
+           }
+          
+           
+           
+           
+           
+           
+          }
         }
    }
    return u_int; 
@@ -270,8 +281,8 @@ int main ()
   big_num num1;
   big_num num2;
 
-  num1.setstr("1");
-  num2.setstr("-2");
+  num1.setstr("2321");
+  num2.setstr("-3426461");
   test.add(num1, num2);
 
   test.outstr();
