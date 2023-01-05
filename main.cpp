@@ -208,7 +208,16 @@ void insert(int pos, signed int num){
 
     // code for if num1 is negative (incomplete)
     if (num1.at(0) == -1){
-
+        
+     if (compare(num1, num2) == 1){
+         
+         for ()
+         
+         
+         
+         
+     }
+     
 
 
     }
@@ -216,28 +225,27 @@ void insert(int pos, signed int num){
 
 
          // code for if num2 is negative (incomplete)
-        else if (num2.at(0) == -1){
+   else if (num2.at(0) == -1){
             
             // code if abs(num2) is less than num1 (complete)
-          if (compare(num1,num2) == 1){
+   if (compare(num1,num2) == 1){
               
-            for (int i = 1; i<num1.size(); i++){
-               u_int.push_back(0);
-                }               
+    for (int i = 1; i<num1.size(); i++){
+     u_int.push_back(0);
+    }               
               
               
-              for (int i = num1.size()-1; i>=0; i--){
-                  u_int.at(i) = num1.at(i)-num2.at(i+1);
-                  
-                }
-                 for (int i = num1.size()-1; i>=0; i--){
-                  if (u_int.at(i) < 0){
-                    
-                     u_int.at(i)=10+u_int.at(i);
-                     u_int.at(i-1)-=1; 
-                  }
-              }
-          }
+    for (int i = num1.size()-1; i>=0; i--){
+     u_int.at(i) = num1.at(i)-num2.at(i+1);
+     }
+     
+    for (int i = num1.size()-1; i>=0; i--){
+        if (u_int.at(i) < 0){
+          u_int.at(i)=10+u_int.at(i);
+          u_int.at(i-1)-=1; 
+        }
+     }
+    }
           // code for if abs(num2) is more than num1 (complete)
           if (compare(num1,num2) == -1){
               
@@ -248,7 +256,6 @@ void insert(int pos, signed int num){
            u_int.at(0) = -1;
            for (int i = num2.size()-1; i>=0; i--){
                u_int.at(i+1) = num2.at(i+1)-num1.at(i);
-               
            }
           
          
@@ -260,12 +267,6 @@ void insert(int pos, signed int num){
                    u_int.at(i-1) -= 1;
                }
            }
-          
-           
-           
-           
-           
-           
           }
         }
    }
